@@ -68,11 +68,7 @@ jobs:
           case ${{ matrix.target }} in
           *-pc-windows-*) 
             7z -y a ncspot-${{ steps.extract_tag.outputs.tag }}-${{ matrix.artifact_prefix }}.zip ncspot.exe
-            bash --version
-            where bash
-            where shasum
-            where sha256sum
-            shasum -a 256 ncspot-${{ steps.extract_tag.outputs.tag }}-${{ matrix.artifact_prefix }}.zip > ncspot-${{ steps.extract_tag.outputs.tag }}-${{ matrix.artifact_prefix }}.sha256
+            sha256sum ncspot-${{ steps.extract_tag.outputs.tag }}-${{ matrix.artifact_prefix }}.zip > ncspot-${{ steps.extract_tag.outputs.tag }}-${{ matrix.artifact_prefix }}.sha256
             ;;
           *) 
             strip ncspot
